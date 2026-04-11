@@ -49,6 +49,49 @@ A production-hardened Linux server provisioned on Oracle Cloud, serving a static
 
 ---
 
+## Oracle Cloud Network Configuration
+
+Oracle Cloud has its own network-level firewall (Security Lists) that sits outside the instance. Even with UFW configured correctly inside the VM, traffic on ports 80 and 443 will be blocked unless ingress rules are explicitly added at the VCN level.
+
+### 1. Assign a Reserved Public IP
+
+By default, Oracle may not assign a public IP during instance creation. A reserved public IP ensures the address never changes even if the instance is stopped or recreated.
+
+**Steps:**
+1. Go to **Compute → Instances → your instance**
+2. Scroll to **Attached VNICs** and click the primary VNIC
+3. Click **IPv4 Addresses**
+4. Click the three-dot menu next to the private IP → **Edit**
+5. Under **Public IP**, select **Reserved public IP**
+6. Give it a name (e.g. `hng-public-ip`) and click **Save**
+
+### 2. Open Ports 80 and 443 in the Security List
+
+**Steps:**
+1. Go to **Networking → Virtual Cloud Networks → your VCN**
+2. Click **Security Lists** → default security list
+3. Click **Add Ingress Rules** and add the following two rules:
+
+**HTTP — Port 80:**
+
+| Field | Value |
+|---|---|
+| Source CIDR | `0.0.0.0/0` |
+| IP Protocol | TCP |
+| Destination Port Range | `80` |
+
+**HTTPS — Port 443:**
+
+| Field | Value |
+|---|---|
+| Source CIDR | `0.0.0.0/0` |
+| IP Protocol | TCP |
+| Destination Port Range | `443` |
+
+> **Note:** Port 22 (SSH) is open by default in Oracle's Security List. The two ICMP rules present by default are unrelated to port-based access and can be left as is.
+
+---
+
 ## Implementation
 
 ### 1. Server Hardening
@@ -110,6 +153,22 @@ server {
 }
 ```
 
+Enable the site, test the config, and reload Nginx:
+
+```bash
+# Enable the site
+sudo ln -s /etc/nginx/sites-available/kloudwiz.xyz /etc/nginx/sites-enabled/
+
+# Remove the default site
+sudo rm /etc/nginx/sites-enabled/default
+
+# Test config for syntax errors
+sudo nginx -t
+
+# Reload Nginx to apply changes
+sudo systemctl reload nginx
+```
+
 ### 4. SSL with Let's Encrypt
 
 ```bash
@@ -117,7 +176,7 @@ sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d kloudwiz.xyz -d www.kloudwiz.xyz
 ```
 
-Certbot automatically configured the 301 HTTP → HTTPS redirect and set up auto-renewal.
+Certbot automatically modifies the Nginx config to add the SSL server block and configure the 301 HTTP → HTTPS redirect. It also sets up a systemd timer for auto-renewal every 90 days.
 
 ---
 
