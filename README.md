@@ -1,12 +1,12 @@
 # HNG14 DevOps Journey
 
-A collection of DevOps projects built during the HNG14 internship, progressively covering Linux server administration, containerization, orchestration, and CI/CD pipelines.
+This is a collection of hands-on DevOps projects that I built during the HNG14 internship, spanning Linux server administration, containerization, orchestration, CI/CD pipelines and more
 
 ## Stages
 
 | Stage | Title | Stack | Status |
 |---|---|---|---|
-| [Stage 0](./stage-0/) | Linux Server Setup & Nginx Configuration | Ubuntu, Nginx, UFW, Let's Encrypt | ✅ Complete |
+| [Stage 0](./stage-0/) | Linux Server Setup & Nginx Configuration | Ubuntu, Nginx, UFW, Let's Encrypt | Complete |
 
 ## Author
 
