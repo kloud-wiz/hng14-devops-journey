@@ -27,7 +27,7 @@ All endpoints return `Content-Type: application/json` and an HTTP `200 OK` statu
 | :--- | :--- | :--- | :--- |
 | `/` | GET | `{"message": "API is running"}` | Root status check |
 | `/health` | GET | `{"message": "healthy"}` | Standard health monitoring |
-| `/me` | GET | `{"name": "...", "email": "...", "github": "..."}` | Developer profile details |
+| `/me` | GET | `{"name": "Wisdom Emmanuel", "email": "emmanuelwisdom95@gmail.com", "github": "https://github.com/kloud-wiz"}` | Developer profile details |
 
 ---
 
@@ -75,7 +75,5 @@ The application is managed by a `systemd` service (`kloudwiz-api.service`). This
 
 ---
 
-## **Live Endpoint Deployment URLs**
+## **Live Deployment URL**
 [https://kloudwiz.xyz/](https://kloudwiz.xyz/)
-[https://kloudwiz.xyz/health](https://kloudwiz.xyz/health)
-[https://kloudwiz.xyz/me](https://kloudwiz.xyz/me)
