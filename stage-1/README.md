@@ -1,6 +1,7 @@
-# HNG14 Stage 1: Personal API
+# **HNG14 Stage 1: Personal API**
 
 A lightweight Node.js/Express API developed for the HNG14 DevOps Track. This project demonstrates backend service deployment, process persistence using `systemd`, secure exposure via an Nginx reverse proxy with SSL, and optimized HTTP response handling.
+
 ---
 
 ## **Project Overview**
@@ -57,7 +58,7 @@ The application is managed by a `systemd` service (`kloudwiz-api.service`). This
 ### **Setup Instructions**
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/kloud-wiz/hng14-devops-journey.git](https://github.com/kloud-wiz/hng14-devops-journey.git)
+    git clone https://github.com/kloud-wiz/hng14-devops-journey.git
     cd hng14-devops-journey/stage-1/kloudwiz-api
     ```
 
@@ -71,10 +72,6 @@ The application is managed by a `systemd` service (`kloudwiz-api.service`). This
     node index.js
     ```
     The API will be available locally at `http://localhost:3000`.
-
----
-
-## **Infrastructure & Deployment**
 
 ---
 
