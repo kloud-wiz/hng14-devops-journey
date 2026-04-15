@@ -7,6 +7,7 @@ This is a collection of hands-on DevOps projects that I built during the HNG14 i
 | Stage | Title | Stack | Status |
 |---|---|---|---|
 | [Stage 0](./stage-0/) | Linux Server Setup & Nginx Configuration | Ubuntu, Nginx, UFW, Let's Encrypt | Complete |
+| [Stage 1](./stage-1/) | Personal API (kloudwiz-api) | Node.js/Express, Ubuntu, Nginx, UFW, Let's Encrypt | Complete |
 
 ## Author
 
