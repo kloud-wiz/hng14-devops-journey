@@ -35,3 +35,38 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Dependency directories
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.test
+.env.production
+
+# npm/yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# Application logs (if you add file logging later)
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Optional: Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
