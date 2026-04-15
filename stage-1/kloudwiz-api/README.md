@@ -76,4 +76,4 @@ The application is managed by a `systemd` service (`kloudwiz-api.service`). This
 ---
 
 ## **Live Deployment URL**
-[https://kloudwiz.xyz/](https://kloudwiz.xyz/)
+[https://kloudwiz.xyz](https://kloudwiz.xyz)
