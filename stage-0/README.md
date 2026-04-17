@@ -8,9 +8,7 @@ A production-hardened Linux server provisioned on Oracle Cloud, serving a static
 
 ## Architecture
 
-![Architecture Diagram](../assets/images/stage-0-architecture.png)
-
-> _Diagram coming soon — will illustrate the request flow from client → DNS → UFW → Nginx → static HTML / JSON response, with SSL termination layer._
+![Architecture Diagram](../assets/images/stage-0_architecture_diagram.png)
 
 ---
 
